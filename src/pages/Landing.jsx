@@ -10,8 +10,8 @@ import {
   Award,
   Clock,
 } from "lucide-react";
-import { CONFERENCE_OPTIONS } from "./data/conferences";
-import { WORKSHOP_OPTIONS } from "./data/workshops";
+import { CONFERENCE_OPTIONS } from "../data/conferences";
+import { WORKSHOP_OPTIONS } from "../data/workshops";
 
 function Landing({ setCurrentPage }) {
   return (

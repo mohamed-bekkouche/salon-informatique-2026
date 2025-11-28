@@ -6,11 +6,14 @@ import {
   Phone,
   User,
   School,
+  Loader,
 } from "lucide-react";
-import { CONFERENCE_OPTIONS } from "./data/conferences";
-import { WORKSHOP_OPTIONS } from "./data/workshops";
-
+import { useState } from "react";
+import { CONFERENCE_OPTIONS } from "../data/conferences";
+import { WORKSHOP_OPTIONS } from "../data/workshops";
 function Registration({ setCurrentPage, formData, setFormData }) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (type === "checkbox") {
@@ -36,6 +39,7 @@ function Registration({ setCurrentPage, formData, setFormData }) {
       return;
     }
 
+    setIsLoading(true);
     const scriptURL =
       "https://script.google.com/macros/s/AKfycbwui7UznEc-e2Mj7FPqTxT3xAOO7CxiNQSOmm6n3l8KuciIupxlyyZ0q4SV6d9S4CRB/exec";
 
@@ -64,8 +68,11 @@ function Registration({ setCurrentPage, formData, setFormData }) {
     } catch (error) {
       console.error("Error:", error);
       alert("Erreur lors de l'envoi du formulaire. Veuillez réessayer.");
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Header */}
@@ -80,6 +87,7 @@ function Registration({ setCurrentPage, formData, setFormData }) {
           <button
             onClick={() => setCurrentPage("landing")}
             className="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center space-x-2"
+            disabled={isLoading}
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="font-semibold">Retour à l'accueil</span>
@@ -115,7 +123,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all"
+                      disabled={isLoading}
+                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Entrez votre nom complet"
                     />
                   </div>
@@ -133,7 +142,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all"
+                      disabled={isLoading}
+                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="exemple@email.com"
                     />
                   </div>
@@ -151,7 +161,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all"
+                      disabled={isLoading}
+                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="+213 XX XXX XX XX"
                     />
                   </div>
@@ -168,7 +179,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                       value={formData.level}
                       onChange={handleChange}
                       required
-                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all appearance-none"
+                      disabled={isLoading}
+                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <option value="" className="bg-slate-800">
                         Sélectionnez votre niveau
@@ -208,7 +220,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                       name="university"
                       value={formData.university}
                       onChange={handleChange}
-                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all"
+                      disabled={isLoading}
+                      className="w-full pr-4 pl-9 py-3 bg-white/10 border border-white/30 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-cyan-500 focus:border-transparent backdrop-blur-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Nom de l'université"
                     />
                   </div>
@@ -224,7 +237,11 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                   {CONFERENCE_OPTIONS.map((conf) => (
                     <label
                       key={conf.value}
-                      className="flex items-center space-x-3 bg-white/5 p-4 rounded-xl border border-white/20 hover:bg-white/10 hover:border-cyan-500/50 transition-all cursor-pointer"
+                      className={`flex items-center space-x-3 p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
+                        isLoading
+                          ? "bg-white/5 opacity-50 cursor-not-allowed"
+                          : "bg-white/5 hover:bg-white/10 hover:border-cyan-500/50"
+                      }`}
                     >
                       <input
                         type="checkbox"
@@ -232,7 +249,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                         value={conf.value}
                         checked={formData.conferences.includes(conf.value)}
                         onChange={handleChange}
-                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500"
+                        disabled={isLoading}
+                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 disabled:cursor-not-allowed"
                       />
                       <conf.icon className="w-5 h-5 text-purple-400" />
                       <span className="text-white font-medium">
@@ -252,7 +270,11 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                   {WORKSHOP_OPTIONS.map((workshop) => (
                     <label
                       key={workshop.value}
-                      className="flex items-center space-x-3 bg-white/5 p-4 rounded-xl border border-white/20 hover:bg-white/10 hover:border-cyan-500/50 transition-all cursor-pointer"
+                      className={`flex items-center space-x-3 p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
+                        isLoading
+                          ? "bg-white/5 opacity-50 cursor-not-allowed"
+                          : "bg-white/5 hover:bg-white/10 hover:border-cyan-500/50"
+                      }`}
                     >
                       <input
                         type="checkbox"
@@ -260,7 +282,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                         value={workshop.value}
                         checked={formData.workshops.includes(workshop.value)}
                         onChange={handleChange}
-                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500"
+                        disabled={isLoading}
+                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 disabled:cursor-not-allowed"
                       />
                       <workshop.icon className="w-5 h-5 text-purple-400" />
                       <span className="text-white font-medium">
@@ -274,9 +297,21 @@ function Registration({ setCurrentPage, formData, setFormData }) {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-6 rounded-xl font-bold text-lg shadow-xl shadow-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all transform hover:scale-105"
+                disabled={isLoading}
+                className={`w-full text-white py-4 px-6 rounded-xl font-bold text-lg shadow-xl shadow-cyan-500/30 transition-all transform hover:scale-105 flex items-center justify-center space-x-2 ${
+                  isLoading
+                    ? "bg-gray-600 cursor-not-allowed"
+                    : "bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-2xl hover:shadow-cyan-500/50"
+                }`}
               >
-                Confirmer l'inscription
+                {isLoading ? (
+                  <>
+                    <Loader className="w-5 h-5 animate-spin" />
+                    <span>Envoi en cours...</span>
+                  </>
+                ) : (
+                  <span>Confirmer l'inscription</span>
+                )}
               </button>
             </form>
           </div>

@@ -16,23 +16,27 @@ export default function App() {
   });
 
   if (currentPage === "landing") {
-    <Landing setCurrentPage={setCurrentPage} />;
+    return <Landing setCurrentPage={setCurrentPage} />;
   }
 
   if (currentPage === "register") {
-    <Registration
-      formData={formData}
-      setFormData={setFormData}
-      setCurrentPage={setCurrentPage}
-    />;
+    return (
+      <Registration
+        formData={formData}
+        setFormData={setFormData}
+        setCurrentPage={setCurrentPage}
+      />
+    );
   }
 
   if (currentPage === "success") {
-    <Success
-      formData={formData}
-      setFormData={setFormData}
-      setCurrentPage={setCurrentPage}
-    />;
+    return (
+      <Success
+        formData={formData}
+        setFormData={setFormData}
+        setCurrentPage={setCurrentPage}
+      />
+    );
   }
 
   return null;
