@@ -229,7 +229,7 @@ function Landing({ setCurrentPage }) {
               <p className="text-cyan-300 font-semibold">1-4 Décembre 2025</p>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 leading-tight">
               Transformation Numérique par
               <br />
               l'Intelligence des Données
@@ -544,7 +544,7 @@ function Landing({ setCurrentPage }) {
 
                           <div className="relative flex items-start gap-4">
                             <div
-                              className={`hidden block p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
+                              className={`hidden sm:block p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
                                 hoveredWork === idx
                                   ? "from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50"
                                   : "from-purple-500/20 to-pink-500/20"
@@ -897,17 +897,17 @@ function Landing({ setCurrentPage }) {
       {/* CTA Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl p-12 shadow-2xl shadow-purple-500/30">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <div className="bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl p-6 md:p-12 shadow-2xl shadow-purple-500/30">
+            <h2 className="text-2xl md:text-5xl font-bold text-white mb-6">
               Rejoignez la transformation numérique
             </h2>
-            <p className="text-xl text-cyan-100 mb-8">
+            <p className="text-lg md:text-xl text-cyan-100 mb-8">
               Ne manquez pas cette opportunité de participer au plus grand
               rassemblement informatique national
             </p>
             <button
               onClick={() => setCurrentPage("register")}
-              className="px-10 py-4 bg-white text-purple-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
+              className="px-6 md:px-10 py-4 bg-white text-purple-900 rounded-full font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-xl"
             >
               Inscrivez-vous gratuitement maintenant
             </button>
