@@ -229,7 +229,7 @@ function Landing({ setCurrentPage }) {
               <p className="text-cyan-300 font-semibold">1-4 Décembre 2025</p>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 mb-6 leading-tight">
               Transformation Numérique par
               <br />
               l'Intelligence des Données
@@ -392,7 +392,7 @@ function Landing({ setCurrentPage }) {
                   </span>
                 </div>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6 tracking-tight">
                 Conférences & Ateliers
               </h2>
               <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
@@ -631,7 +631,7 @@ function Landing({ setCurrentPage }) {
                   </span>
                 </div>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 mb-6 tracking-tight">
                 Programme Détaillé
               </h2>
               <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
