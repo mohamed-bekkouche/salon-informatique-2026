@@ -193,8 +193,8 @@ function Landing({ setCurrentPage }) {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
       <header className="absolute top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
+          <div className="flex items-center  gap-2">
             <div className="w-14 h-14 rounded-full flex items-center justify-center">
               <img src="/logo.webp" className="w-full" />
             </div>
@@ -209,7 +209,7 @@ function Landing({ setCurrentPage }) {
           </div>
           <button
             onClick={() => setCurrentPage("register")}
-            className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all transform hover:scale-105"
+            className="hidden sm:block px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all transform hover:scale-105"
           >
             S'inscrire
           </button>
@@ -448,7 +448,7 @@ function Landing({ setCurrentPage }) {
 
                           <div className="relative flex items-start gap-4">
                             <div
-                              className={`p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
+                              className={`hidden sm:block p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
                                 hoveredConf === idx
                                   ? "from-cyan-500 to-purple-500 shadow-lg shadow-cyan-500/50"
                                   : "from-cyan-500/20 to-purple-500/20"
@@ -544,7 +544,7 @@ function Landing({ setCurrentPage }) {
 
                           <div className="relative flex items-start gap-4">
                             <div
-                              className={`p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
+                              className={`hidden block p-3 rounded-xl bg-gradient-to-br transition-all duration-300 ${
                                 hoveredWork === idx
                                   ? "from-purple-500 to-pink-500 shadow-lg shadow-purple-500/50"
                                   : "from-purple-500/20 to-pink-500/20"
