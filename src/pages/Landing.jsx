@@ -196,7 +196,7 @@ function Landing({ setCurrentPage }) {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
           <div className="flex items-center  gap-2">
             <div className="w-14 h-14 rounded-full flex items-center justify-center">
-              <img src="/logo.webp" className="w-full" />
+              <img loading="lazy" src="/logo.webp" className="w-full" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">
@@ -880,7 +880,11 @@ function Landing({ setCurrentPage }) {
                 className="bg-white/10 rounded-2xl p-6 border border-white/10 hover:border-cyan-500/50 transition-all"
               >
                 <div className=" rounded-xl w-full h-40 mb-4 flex items-center justify-center">
-                  <img src={org.image} className="w-28 text-cyan-400" />
+                  <img
+                    loading="lazy"
+                    src={org.image}
+                    className="w-28 text-cyan-400"
+                  />
                 </div>
                 <h4 className="text-white font-semibold text-center mb-2">
                   {org.name}

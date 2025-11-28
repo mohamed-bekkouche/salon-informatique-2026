@@ -105,7 +105,7 @@ export default function Registration({
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="w-14 h-14 rounded-full flex items-center justify-center">
-                <img src="/logo.webp" className="w-full" />
+                <img loading="lazy" src="/logo.webp" className="w-full" />
               </div>
               <span className="text-white font-bold text-lg sm:text-xl">
                 Inscription
