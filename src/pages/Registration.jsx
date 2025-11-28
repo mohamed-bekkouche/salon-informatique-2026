@@ -7,10 +7,14 @@ import {
   User,
   School,
   Loader,
+  Calendar,
+  Clock,
+  MapPin,
 } from "lucide-react";
 import { useState } from "react";
 import { CONFERENCE_OPTIONS } from "../data/conferences";
 import { WORKSHOP_OPTIONS } from "../data/workshops";
+
 function Registration({ setCurrentPage, formData, setFormData }) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -79,8 +83,8 @@ function Registration({ setCurrentPage, formData, setFormData }) {
       <header className="bg-black/30 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center">
-              <Sparkles className="w-6 h-6 text-white" />
+            <div className="w-14 h-14 rounded-full flex items-center justify-center">
+              <img src="/logo.webp" className="w-full" />
             </div>
             <span className="text-white font-bold">Inscription</span>
           </div>
@@ -237,7 +241,7 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                   {CONFERENCE_OPTIONS.map((conf) => (
                     <label
                       key={conf.value}
-                      className={`flex items-center space-x-3 p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
+                      className={`flex items-start p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
                         isLoading
                           ? "bg-white/5 opacity-50 cursor-not-allowed"
                           : "bg-white/5 hover:bg-white/10 hover:border-cyan-500/50"
@@ -250,12 +254,26 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                         checked={formData.conferences.includes(conf.value)}
                         onChange={handleChange}
                         disabled={isLoading}
-                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 disabled:cursor-not-allowed"
+                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 mt-0.5 disabled:cursor-not-allowed"
                       />
-                      <conf.icon className="w-5 h-5 text-purple-400" />
-                      <span className="text-white font-medium">
-                        {conf.label}
-                      </span>
+                      <div className="ml-3 flex-1">
+                        <div className="flex items-center">
+                          <span className="text-white font-medium">
+                            {conf.label}
+                          </span>
+                        </div>
+                        <p className="text-cyan-300 text-sm mt-1">
+                          {conf.speaker}
+                        </p>
+                        <div className="flex items-center text-gray-400 text-xs mt-1">
+                          <Calendar className="w-3 h-3 mr-1" />
+                          <span>{conf.date}</span>
+                          <Clock className="w-3 h-3 mx-1" />
+                          <span>{conf.time}</span>
+                          <MapPin className="w-3 h-3 ml-1" />
+                          <span>{conf.location}</span>
+                        </div>
+                      </div>
                     </label>
                   ))}
                 </div>
@@ -270,7 +288,7 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                   {WORKSHOP_OPTIONS.map((workshop) => (
                     <label
                       key={workshop.value}
-                      className={`flex items-center space-x-3 p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
+                      className={`flex items-start p-4 rounded-xl border border-white/20 transition-all cursor-pointer ${
                         isLoading
                           ? "bg-white/5 opacity-50 cursor-not-allowed"
                           : "bg-white/5 hover:bg-white/10 hover:border-cyan-500/50"
@@ -283,12 +301,26 @@ function Registration({ setCurrentPage, formData, setFormData }) {
                         checked={formData.workshops.includes(workshop.value)}
                         onChange={handleChange}
                         disabled={isLoading}
-                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 disabled:cursor-not-allowed"
+                        className="h-5 w-5 text-cyan-500 rounded focus:ring-cyan-500 mt-0.5 disabled:cursor-not-allowed"
                       />
-                      <workshop.icon className="w-5 h-5 text-purple-400" />
-                      <span className="text-white font-medium">
-                        {workshop.label}
-                      </span>
+                      <div className="ml-3 flex-1">
+                        <div className="flex items-center">
+                          <span className="text-white font-medium">
+                            {workshop.label}
+                          </span>
+                        </div>
+                        <p className="text-cyan-300 text-sm mt-1">
+                          {workshop.speaker}
+                        </p>
+                        <div className="flex items-center text-gray-400 text-xs mt-1">
+                          <Calendar className="w-3 h-3 mr-1" />
+                          <span>{workshop.date}</span>
+                          <Clock className="w-3 h-3 mx-1" />
+                          <span>{workshop.time}</span>
+                          <MapPin className="w-3 h-3 ml-1" />
+                          <span>{workshop.location}</span>
+                        </div>
+                      </div>
                     </label>
                   ))}
                 </div>
