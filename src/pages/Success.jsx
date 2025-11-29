@@ -184,10 +184,10 @@ export default function Success({ setCurrentPage, formData, setFormData }) {
             <p className="text-xs sm:text-sm text-gray-400">
               Vous avez des questions? Contactez-nous à{" "}
               <a
-                href="mailto:support@event.com"
+                href="mailto:startcodingclub2024@gmail.com"
                 className="text-emerald-400 hover:text-emerald-300 underline transition-colors"
               >
-                support@event.com
+                startcodingclub2024@gmail.com
               </a>
             </p>
           </div>
