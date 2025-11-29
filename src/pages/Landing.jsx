@@ -8,10 +8,6 @@ import {
   Award,
   Clock,
   User,
-  Award as AwardIcon,
-  Coffee as CoffeeIcon,
-  Sun as SunIcon,
-  Moon as MoonIcon,
   Zap,
   Sparkles,
   ChevronDown,
@@ -170,7 +166,7 @@ function Landing({ setCurrentPage }) {
   const CLUBS = [
     {
       name: "Start Coding Club",
-      description: "Constantine - El Khroub",
+      description: "NTIC - Université 2",
       image: "/scc.webp",
     },
     {
