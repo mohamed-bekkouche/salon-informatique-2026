@@ -170,6 +170,11 @@ function Landing({ setCurrentPage }) {
       image: "/scc.webp",
     },
     {
+      name: "Innovation Crew",
+      description: "Université 2",
+      image: "/inova.webp",
+    },
+    {
       name: "Université Abdelhamid Mehri",
       description: "Constantine",
       image: "/unv2.webp",
@@ -869,7 +874,7 @@ function Landing({ setCurrentPage }) {
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 w-full lg:grid-cols-3 justify-center items-center gap-5">
             {CLUBS.map((org, index) => (
               <div
                 key={index}
